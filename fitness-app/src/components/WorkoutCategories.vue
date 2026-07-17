@@ -1,28 +1,25 @@
 <script setup>
 import { ref, computed, watch } from 'vue';
 
-// Массив категорий тренировок
 const categories = ref([
-  { id: '01', title: 'Упражнения дома', videosCount: 15 },
+  { id: '01', title: 'Силовые тренировки', videosCount: 15 },
   { id: '02', title: 'Оставайтесь в форме', videosCount: 48 },
   { id: '03', title: 'Интенсив', videosCount: 25 },
   { id: '04', title: 'Простые упражнения', videosCount: 35 },
   { id: '05', title: 'Сжигание калорий', videosCount: 35 },
 ]);
 
-// ID активной строки (по умолчанию первая)
+
 const activeId = ref('01');
 
-// ОТРАБАТЫВАЕМ COMPUTED — автоматически суммируем все видеоролики
 const totalVideosCount = computed(() => {
   return categories.value.reduce((total, item) => total + item.videosCount, 0);
 });
 
-// ОТРАБАТЫВАЕМ WATCH — следим в реальном времени, какую строку выбрал пользователь
 watch(activeId, (newId) => {
   const selected = categories.value.find(c => c.id === newId);
   if (selected) {
-    console.log(`[Vue 2026] Пользователь переключился на плейлист: ${selected.title}`);
+    console.log(`Пользователь переключился на плейлист: ${selected.title}`);
   }
 });
 </script>
@@ -39,7 +36,6 @@ watch(activeId, (newId) => {
         </p>
       </div>
 
-      <!-- Список строк -->
       <div class="list">
         <div 
           v-for="item in categories" 
@@ -61,7 +57,6 @@ watch(activeId, (newId) => {
         </div>
       </div>
 
-      <!-- Подвал (Футтер) -->
       <footer class="footer">
         <p class="footer-text">Все права защищены</p>
       </footer>
@@ -124,7 +119,7 @@ watch(activeId, (newId) => {
       }
 
       .arrow {
-        transform: translateX(10px) rotate(-45deg); // Стрелка красиво поворачивается
+        transform: translateX(10px) rotate(-45deg);
         color: var(--neon-yellow);
       }
     }
@@ -158,7 +153,7 @@ watch(activeId, (newId) => {
   }
 
   .sub-text {
-    font-size: 14px;
+    font-size: 16px;
     color: #666666;
   }
 
@@ -182,7 +177,7 @@ watch(activeId, (newId) => {
     border-top: 1px solid rgba(255, 255, 255, 0.05);
 
     .footer-text {
-      font-size: 14px;
+      font-size: 16px;
       color: #444444;
     }
   }

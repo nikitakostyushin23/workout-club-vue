@@ -1,18 +1,18 @@
 <script setup>
 import { ref } from 'vue';
-import TrainerCard from './TrainerCard.vue'; // Импортируем дочерний компонент
+import TrainerCard from './TrainerCard.vue'; 
 
-// Наш массив тренеров
 const trainers = ref([
-  { id: 1, name: 'Саманта Вильям', role: 'Тренер', img: 'https://placehold.co' },
-  { id: 2, name: 'Джонатан Вайз', role: 'Тренер', img: 'https://placehold.co' },
+  { id: 1, name: 'Михаил Булыжников', role: 'Тренер', img: 'images/Bulyzhnikov.jpg' },
+  { id: 2, name: 'Виктория Амброскина', role: 'Тренер', img: 'images/Ambroskina.jpg' },
+  { id: 3, name: 'Дерек Лансфорд', role: 'Тренер', img: 'images/Lunsford.jpg' },
 ]);
 
 // Реактивная переменная для хранения имени выбранного тренера
 const selectedTrainer = ref('');
 
 // Функция ловит имя из эмита дочерней карточки
-function handleTrainerSelection(name) {
+const handleTrainerSelection = name => {
   selectedTrainer.value = name;
 }
 </script>
@@ -38,8 +38,7 @@ function handleTrainerSelection(name) {
             <strong style="color: #FFE600;">{{ selectedTrainer }}</strong>. Нажимай кнопку ниже, чтобы начать!
           </p>
           <p class="desc" v-else>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
-            incididunt ut labore et dolore magna aliqua.
+         Выбирай тренера и начинай заниматься уже сегодня!
           </p>
           <button class="start-btn">Начать</button>
         </div>
@@ -52,9 +51,11 @@ function handleTrainerSelection(name) {
           <TrainerCard :trainer="trainers[0]" @select-trainer="handleTrainerSelection" />
         </div>
         
-        <div class="grid-item empty-slot"></div>
-        
         <div class="grid-item slot-2">
+          <TrainerCard :trainer="trainers[2]" @select-trainer="handleTrainerSelection" />
+        </div>
+        
+        <div class="grid-item slot-3">
           <TrainerCard :trainer="trainers[1]" @select-trainer="handleTrainerSelection" />
         </div>
       </div>
@@ -111,14 +112,14 @@ function handleTrainerSelection(name) {
     flex: 0 1 450px;
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 20px;
     align-items: flex-start;
   }
 
   .desc {
     color: #868686;
     line-height: 1.6;
-    font-size: 16px;
+    font-size: 20px;
     min-height: 75px;
   }
 
@@ -131,6 +132,7 @@ function handleTrainerSelection(name) {
     font-size: 16px;
     border-radius: 8px;
     cursor: pointer;
+    width: 130px;
     transition: transform 0.2s, box-shadow 0.2s;
 
     &:hover {
@@ -147,7 +149,6 @@ function handleTrainerSelection(name) {
 
     @media (max-width: 900px) {
       grid-template-columns: repeat(2, 1fr);
-      .empty-slot { display: none; }
     }
 
     @media (max-width: 600px) {
@@ -156,7 +157,14 @@ function handleTrainerSelection(name) {
   }
 
   .slot-2 {
-    margin-top: 60px; // Джонатан чуть ниже, как на макете
+    margin-top: 60px; 
+    
+    @media (max-width: 900px) {
+      margin-top: 0;
+    }
+  }
+  .slot-3 {
+    margin-top: 100px; 
     
     @media (max-width: 900px) {
       margin-top: 0;

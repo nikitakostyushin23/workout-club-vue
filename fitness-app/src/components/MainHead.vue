@@ -9,10 +9,9 @@ const showTime = ref("38:00");
 const calories = ref(220);
 
 
-function formatTime(time) {
+const formatTime = time => {
   const mins = Math.floor(time / 60);
   const secs = time % 60;
-  
   return `${mins}:${(secs) < 10 ? '0' : ''}${secs}`;
 };
 

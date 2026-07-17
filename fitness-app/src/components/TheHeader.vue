@@ -5,7 +5,7 @@ import { ref } from 'vue'
 
 const isMenuOpen = ref(false)
 
-function toggleMenu() {
+const toggleMenu = () => {
   isMenuOpen.value = !isMenuOpen.value
 }
 </script>

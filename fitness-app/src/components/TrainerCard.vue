@@ -11,7 +11,7 @@ defineProps({
 const emit = defineEmits(['select-trainer'])
 
 // Функция срабатывает при клике на всю карточку
-function handleClick(name) {
+const handleClick = name => {
   emit('select-trainer', name) // Отправляем имя выбранного тренера
 }
 </script>
@@ -50,7 +50,6 @@ function handleClick(name) {
 
   .img {
     width: 100%;
-    height: 100%;
     object-fit: cover;
   }
 
@@ -66,7 +65,7 @@ function handleClick(name) {
   }
 
   .role {
-    font-size: 14px;
+    font-size: 16px;
     color: #666666;
   }
 }
