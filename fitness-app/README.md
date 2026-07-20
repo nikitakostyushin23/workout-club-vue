@@ -1,48 +1,39 @@
-# fitness-app
+# Workout Club — Современное SPA-приложение на Vue 3
 
-This template should help get you started developing with Vue 3 in Vite.
+Стильный, адаптивный веб-интерфейс для фитнес-платформы, спроектированный по современным стандартам фронтенд-разработки. Проект демонстрирует уверенное владение компонентной архитектурой Vue и техниками работы со стилями.
 
-## Recommended IDE Setup
+## Стек технологий & Особенности
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+- **Фреймворк:** Vue 3 (Синтаксис `<script setup>`) — быстрый, реактивный и современный код.
+- **Препроцессор:** SCSS / Лайтовый Sass на минималках — использование миксинов для анимаций и автоматического импорта глобальных стилей.
+- **Современный CSS:** Полный отказ от избыточной БЭМ-нотации внутри компонентов благодаря изоляции `<style scoped>`. Использование нативных CSS-переменных (`var(--accent)`) для гибкого управления акцентами интерфейса.
+- **Адаптивность:** Ададптивная верстка на Flexbox и CSS Grid. Интерфейс подстраивается под любые экраны: от больших мониторов до мобильных телефонов (320px), включая сложные брейкпоинты планшетов (900px).
 
-## Recommended Browser Setup
+## Реализованные фичи Vue 3
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
+Проект создан с фокусом на отработку ключевых аспектов Vue 3:
+1. **Реактивность (`ref`) & Хуки жизненного цикла (`onMounted` / `onUnmounted`):** Реализован живой счетчик сожженных калорий и таймер тренировки, запускающийся при старте страницы с автоматической очисткой памяти от интервалов.
+2. **Директивы (`v-for`, `v-if`, `:class`):** Динамический рендеринг списков тренировок и интерактивное выплывающее мобильное меню на динамических классах.
+3. **Props & Emits (Компонентные связи):** Разделение интерфейса на родительские и дочерние модули (`OurTrainers.vue` -> `TrainerCard.vue`). Настроена двусторонняя связь: пропсы передают данные тренеров вниз, а эмиты возвращают имя выбранного наставника наверх, динамически меняя контент на экране.
+4. **Computed & Watch:** Интегрирован аккордеон категорий, где вычисляемые свойства (`computed`) суммируют общее количество видео, а наблюдатели (`watch`) отслеживают клики по элементам и готовы к триггеру API-запросов.
 
-## Type Support for `.vue` Imports in TS
+## Установка и запуск проекта
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+Чтобы запустить проект локально на своем компьютере, выполните следующие команды в терминале:
 
-## Customize configuration
+```bash
+# 1. Клонировать репозиторий
+git clone https://github.com
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+# 2. Перейти в папку проекта
+cd workout-club-vue
 
-## Project Setup
-
-```sh
+# 3. Установить все зависимости
 npm install
-```
 
-### Compile and Hot-Reload for Development
-
-```sh
+# 4. Запустить локальный сервер для разработки
 npm run dev
 ```
 
-### Type-Check, Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+---
+*Проект находится в стадии активного развития. В следующем спринте: интеграция Vue Router для многостраничности и подключение глобального стейт-менеджера Pinia, а также форма на v-model*
