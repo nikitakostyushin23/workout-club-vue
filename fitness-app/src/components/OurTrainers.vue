@@ -78,12 +78,18 @@ const handleTrainerSelection = name => {
 
     @media (max-width: 900px) {
       flex-direction: column;
-      gap: 20px;
+      gap: 24px;
+      margin-bottom: 40px;
     }
   }
 
   .left-side {
     flex: 0 1 550px;
+
+     @media (max-width: 900px) {
+      flex: none;
+      width: 100%;
+    }
   }
 
   .main-title {
@@ -114,13 +120,22 @@ const handleTrainerSelection = name => {
     flex-direction: column;
     gap: 20px;
     align-items: flex-start;
+
+    @media (max-width: 900px) {
+      flex: none;
+      width: 100%;  
+    }
   }
 
   .desc {
     color: #868686;
     line-height: 1.6;
     font-size: 20px;
-    min-height: 75px;
+    min-height: auto;
+
+    @media (max-width: 900px) {
+      font-size: 15px; 
+    }
   }
 
   .start-btn {

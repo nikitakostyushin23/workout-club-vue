@@ -51,8 +51,8 @@ const toggleMenu = () => {
         cursor: pointer;
 
         @media (max-width: 1024px) {
-            position: fixed; 
-            top: 30px;
+            position: relative; 
+            top: 10px;
             left: 40px;
             z-index: 1100;
     }
@@ -78,8 +78,8 @@ const toggleMenu = () => {
 
             @media (max-width: 1024px) {
                 display: block;
-                position: fixed; 
-                top: 30px;      
+                position: relative; 
+                top: 10px;      
                 right: 40px;    
                 z-index: 1100;
             }
@@ -87,8 +87,7 @@ const toggleMenu = () => {
             @media (max-width: 450px) {
                 font-size: 12px;     
                 padding: 5px 10px;   
-                right: 20px;         
-                top: 32px;           
+                right: 20px;                   
             }
         }
     }
