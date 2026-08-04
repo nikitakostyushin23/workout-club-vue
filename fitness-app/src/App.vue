@@ -1,25 +1,15 @@
 <script setup>
-
 import { RouterView } from 'vue-router';
-import TheHeader from './components/TheHeader.vue';
-import MainHead from './components/MainHead.vue';
-import PopularWorkouts from './components/PopularWorkouts.vue';
-import OurTrainers from './components/OurTrainers.vue';
-import WorkoutCategories from './components/WorkoutCategories.vue';
-
+import TheHeader from './components/TheHeader.vue'; 
+import TheFooter from './components/TheFooter.vue';
 </script>
 
 <template>
-
   <div class="container">
     <TheHeader />
-    <MainHead />
-    <PopularWorkouts />
-    <OurTrainers />
-    <WorkoutCategories />
+    <RouterView /> 
+    <TheFooter />
   </div>
-  <RouterView />
-
 </template>
 
 <style lang="scss">

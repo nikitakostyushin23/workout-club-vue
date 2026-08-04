@@ -14,7 +14,7 @@ const toggleMenu = () => {
 
     <header class="header">
         <div class="header__inner">
-            <span class="header__logo">WORKOUT CLUB</span>
+            <RouterLink class="header__logo" to="/" >WORKOUT CLUB</RouterLink>
             <Nav :class="{ 'nav--open': isMenuOpen }" />
             
             <button class="header__burger" @click="toggleMenu">
@@ -45,6 +45,7 @@ const toggleMenu = () => {
         }
 
         &__logo {
+        color: #ffffff;
         font-weight: 600;
         font-size: 28px;
         text-transform: uppercase;

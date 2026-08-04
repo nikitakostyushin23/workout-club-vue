@@ -56,11 +56,6 @@ watch(activeId, (newId) => {
           </div>
         </div>
       </div>
-
-      <footer class="footer">
-        <p class="footer-text">Все права защищены</p>
-      </footer>
-
     </div>
   </section>
 </template>
@@ -167,18 +162,6 @@ watch(activeId, (newId) => {
       color: #444444;
       display: inline-block;
       transition: all 0.3s ease;
-    }
-  }
-
-  .footer {
-    margin-top: 80px;
-    padding: 20px 0;
-    text-align: center;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-
-    .footer-text {
-      font-size: 16px;
-      color: #444444;
     }
   }
 }

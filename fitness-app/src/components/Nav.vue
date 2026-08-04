@@ -1,13 +1,16 @@
 <script setup>
 
 import { ref } from 'vue';
+import { RouterLink, useRoute } from 'vue-router';
+
+const route = useRoute(); 
 
 
 const navLinks = ref([
-    { name: 'УПРАЖНЕНИЯ', href: '#exercises' },
-    { name: 'ТРЕНИРОВКИ', href: '#workouts' },
-    { name: 'ЦЕНЫ', href: '#pricing' },
-    { name: 'О НАС', href: '#about' },
+    { name: 'ГЛАВНАЯ', to: '/' },
+    { name: 'ТРЕНИРОВКИ', to: '/cardio' },
+    { name: 'БЛОГ', to: '#blog', isHash: true },
+    { name: 'О НАС', to: '#about', isHash: true },
 ]);
 
 </script>
@@ -17,7 +20,13 @@ const navLinks = ref([
     <nav class="nav">
         <ul class="nav__list">
             <li class="nav__item" v-for="link in navLinks" :key="link.name">
-                <a :href="link.href" class="nav__link">{{ link.name }}</a>
+                <RouterLink :to="link.to" class="nav__link"
+                 :class="{ 
+            'is-link-active': route.path === link.to && !link.isHash,
+            'is-home-active': route.path === '/' && link.to === '/'
+          }"
+          >{{ link.name }}
+          </RouterLink>
             </li>
         </ul>
     </nav>
@@ -40,6 +49,10 @@ const navLinks = ref([
         text-transform: uppercase;
         font-size: 14px;
         transition: color 0.3s;
+
+          &.is-link-active, &.is-home-active {
+            color: #FFE600;
+  }
     }
 
     @media (max-width: 1024px) {
@@ -75,6 +88,10 @@ const navLinks = ref([
             .nav__link {
                 font-size: 24px;
                 color: $text-color;
+
+                 &.is-link-active, &.is-home-active {
+                     color: #FFE600;
+  }
             }
         }
     }
